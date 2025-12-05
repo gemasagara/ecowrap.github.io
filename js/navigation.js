@@ -19,63 +19,76 @@ const pages = {
         title: 'Benefits',
         content: `
             <p>
-                EcoWrap offers numerous benefits that make it a sustainable choice:
-                <br><br>
-                <strong>Environmental Impact:</strong> Being fully edible and biodegradable, EcoWrap eliminates plastic waste and reduces environmental pollution.
-                <br><br>
-                <strong>Nutritional Value:</strong> The packaging is made from nutritious ingredients that add value to the product, supporting a healthier lifestyle.
-                <br><br>
-                <strong>Zero Waste Solution:</strong> Consumers can eat the packaging along with the product, achieving a true zero-waste experience.
-                <br><br>
-                <strong>Local Sourcing:</strong> Ingredients are sourced from local Indonesian resources, supporting local farmers and communities.
-                <br><br>
-                <strong>Innovation:</strong> EcoWrap represents cutting-edge packaging technology that combines sustainability with practicality.
+                We chose this topic as the focus of our research because the development of EcoWrap emphasizes the formulation of local biopolymers such as agar, combined with appropriate plasticizers and additives (such as beeswax) to produce a strong, flexible, and safe edible film. In addition, this study aims to evaluate the stability and performance of EcoWrap during storage when used as functional food packaging. By understanding its physical qualities, durability, and effectiveness in protecting the product, this research is expected to provide an alternative solution that is not only innovative but also sustainable for the modern food industry.
             </p>
         `
     },
     tools: {
         title: 'Tools and Ingredients',
         content: `
-            <p>
-                <strong>Main Ingredients:</strong>
-                <br>
-                - Natural plant-based materials from local Indonesian sources
-                <br>
-                - Edible binders and preservatives derived from natural sources
-                <br>
-                - Spirulina (for the Tempe Chips version)
-                <br><br>
-                <strong>Production Tools:</strong>
-                <br>
-                - Precision molding equipment for consistent packaging shape
-                <br>
-                - Food-grade processing machines
-                <br>
-                - Quality control testing equipment
-                <br>
-                - Sustainable packaging machinery
-                <br><br>
-                <strong>Quality Standards:</strong>
-                <br>
-                All materials meet international food safety standards and are certified for consumption.
-            </p>
+            <div>
+                <div>
+                    <h3>Edible Wrapper</h3>
+                    <p>
+                        <b>Ingredients:</b><br>
+                        1. Tapioca flour<br>
+                        2. Gelatin powder<br>
+                        3. Clean water<br>
+                        4. Coconut oil<br>
+                        5. Spirulina powder<br>
+                        6. Fine salt<br>
+                        7. Honey<br>
+                        8. Beeswax<br>
+                        <br>
+                        <b>Tools:</b><br>
+                        1. Small non-stick pot<br>
+                        2. Measuring spoons<br>
+                        3. Silicone spatula<br>
+                        4. Small stove<br>
+                        5. Flat baking tray<br>
+                        6. Parchment paper<br>
+                        7. Electric oven<br>
+                        8. Small knife<br>
+                        9. Food-safe brush<br>
+                        10. Airtight container<br>
+                    </p>
+                </div>
+                <div>
+                    <h3>Spirulina Tempe Chips</h3>
+                    <p>
+                        <b>Ingredients:</b><br>
+                        1. Fresh tempeh<br>
+                        2. Tapioca flour<br>
+                        3. Wheat flour<br>
+                        4. Clean water<br>
+                        5. Fine salt<br>
+                        6. Garlic powder<br>
+                        7. Spirulina powder<br>
+                        8. Honey<br>
+                        9. Coconut oil<br>
+                        <br>
+                        <b>Tools:</b><br>
+                        1. Knife<br>
+                        2. Cutting board<br>
+                        3. Large bowl<br>
+                        4. Mixing spoon<br>
+                        5. Flat baking tray<br>
+                        6. Electric oven<br>
+                        7. Spatula<br>
+                        8. Tongs<br>
+                        9. Airtight jar<br>
+                    </p>
+                </div>
+            </div>
         `
     },
     buyer: {
-        title: 'Benefits for Buyers',
+        title: 'Benefits for buyer',
         content: `
             <p>
-                <strong>Cost-Effective:</strong> While premium in quality, EcoWrap offers value for money by eliminating the need for separate waste disposal.
+                The Spirulina Tempe Chips with EcoWrap product offers various health benefits for consumers by combining two nutrient-dense ingredients: tempeh and spirulina. Tempeh, as the main ingredient, provides complete plant-based protein, fiber, B vitamins, and antioxidants that help maintain energy, repair cells, and support digestive health. The addition of spirulina further enhances the nutritional value of the product by supplying micronutrients such as iron, magnesium, beta-carotene, essential amino acids, and powerful antioxidants that help boost immunity, reduce inflammation, and promote skin health.
                 <br><br>
-                <strong>Health-Conscious:</strong> The edible packaging adds nutritional value, making it perfect for health-conscious consumers.
-                <br><br>
-                <strong>Environmentally Responsible:</strong> Support sustainable practices and contribute to a cleaner planet with every purchase.
-                <br><br>
-                <strong>Convenient:</strong> No need to dispose of packaging. Simply consume it along with your snack!
-                <br><br>
-                <strong>Premium Experience:</strong> Enjoy a unique and innovative product that reflects your values and lifestyle.
-                <br><br>
-                <strong>Supporting Local:</strong> Your purchase supports local Indonesian farmers and communities.
+                In addition, the edible EcoWrap offers extra advantages because it is made from natural, safe-to-consume ingredients, supports zero-waste principles, and minimizes exposure to chemicals found in conventional plastic packaging. This combination makes the product not only delicious and practical but also nourishing and environmentally friendly.
             </p>
         `
     }
@@ -91,36 +104,24 @@ const contentSection = document.getElementById('content-section');
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
+        const targetHash = link.getAttribute('href').substring(1);
         
-        const targetHash = link.getAttribute('href').substring(1); // Remove '#'
-        
-        // If home is clicked, scroll to hero section
         if (targetHash === 'home') {
-            contentTitle.textContent = pages[targetHash].title;
-            contentText.innerHTML = pages[targetHash].content;
-            setTimeout(() => {
-            const offset = 150;
-            const elementPosition = contentSection.getBoundingClientRect().top + window.scrollY;
-            window.scrollTo({
-                top: elementPosition - offset,
-                behavior: 'smooth'
-            });
-        }, 10);
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
             return;
         }
         
-        // Update content for other pages
         if (pages[targetHash]) {
             contentTitle.textContent = pages[targetHash].title;
             contentText.innerHTML = pages[targetHash].content;
             setTimeout(() => {
-            const offset = 200;
-            const elementPosition = contentSection.getBoundingClientRect().top + window.scrollY;
-            window.scrollTo({
-                top: elementPosition - offset,
-                behavior: 'smooth'
-            });
-        }, 10);
+                const offset = 200;
+                const elementPosition = contentSection.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                    top: elementPosition - offset,
+                    behavior: 'smooth'
+                });
+            }, 10);
         }
     });
 });
@@ -141,10 +142,6 @@ window.addEventListener('hashchange', () => {
     } else if (pages[hash]) {
         contentTitle.textContent = pages[hash].title;
         contentText.innerHTML = pages[hash].content;
-
-        
-
-                // Scroll to content section with offset
         setTimeout(() => {
             const offset = 200;
             const elementPosition = contentSection.getBoundingClientRect().top + window.scrollY;
