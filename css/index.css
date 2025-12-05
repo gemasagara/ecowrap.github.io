@@ -106,13 +106,13 @@ nav {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 15px 0;
+    padding: 20px 0;
+    gap: 20px;
 }
 
 .nav-logo {
-    padding-left: 40px;
     height: 40px;
 }
 
@@ -122,9 +122,11 @@ nav {
     object-fit: contain;
 }
 
-.nav-links {padding-right: 40px;
+.nav-links {
     display: flex;
     list-style: none;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .nav-links li {
