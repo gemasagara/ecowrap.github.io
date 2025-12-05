@@ -333,8 +333,17 @@ footer {
 
 @media (max-width: 768px) {
     .nav-container {
-        flex-wrap: wrap;
-        gap: 15px;
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 12px;
+    }
+    
+    .nav-logo {
+        height: 30px;
+    }
+    
+    .logo {
+        height: 30px;
     }
     
     .nav-links {
@@ -344,8 +353,10 @@ footer {
         overflow-x: auto;
         overflow-y: hidden;
         scroll-behavior: smooth;
-        gap: 15px;
-        padding-bottom: 10px;
+        gap: 8px;
+        padding: 0 15px 8px 15px;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
@@ -357,6 +368,12 @@ footer {
     .nav-links li {
         flex-shrink: 0;
         margin: 0;
+    }
+    
+    .nav-links a {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+        white-space: nowrap;
     }
     
     .mobile-menu-btn {
