@@ -107,7 +107,16 @@ navLinks.forEach(link => {
         const targetHash = link.getAttribute('href').substring(1);
         
         if (targetHash === 'home') {
-            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+            contentTitle.textContent = pages[targetHash].title;
+            contentText.innerHTML = pages[targetHash].content;
+            setTimeout(() => {
+                const offset = 200;
+                const elementPosition = contentSection.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                    top: elementPosition - offset,
+                    behavior: 'smooth'
+                });
+            }, 10);
             return;
         }
         
