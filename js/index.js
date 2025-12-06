@@ -175,7 +175,7 @@ const pages = {
         `
     },
     authors: {
-        title: 'Author Profiles',
+        title: 'Authors Profile',
         get content() {
             return `<div class="authors-grid">${generateAuthorsHTML()}</div>`;
         }
